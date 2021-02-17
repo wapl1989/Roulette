@@ -20,12 +20,20 @@ namespace prjRoulette.Data
         public async Task<string> CreateBet(BetDTO betDTO)
         {
             string response = "";
-            IDatabase db = connectionMultiplexer.GetDatabase();
-            RedisKey key = new RedisKey(nameTable);
-            IList<BetDTO> bets = ListBets() ?? new List<BetDTO>();
-            bets.Add(betDTO);
-            await db.StringSetAsync(key, JsonConvert.SerializeObject(bets));
-
+            if (ValidateRoulette(betDTO.IdRoulette))
+            {
+                IDatabase db = connectionMultiplexer.GetDatabase();
+                RedisKey key = new RedisKey(nameTable);
+                IList<BetDTO> bets = ListBets() ?? new List<BetDTO>();
+                bets.Add(betDTO);
+                await db.StringSetAsync(key, JsonConvert.SerializeObject(bets));
+                response = "OK";
+            }
+            else
+            {
+                response = "El ID de la apuesta no existe o la ruleta se encuentra cerrada.";
+            }
+            
             return response;
         }
 
@@ -37,6 +45,20 @@ namespace prjRoulette.Data
             return listJson != null
                                 ? JsonConvert.DeserializeObject<IList<BetDTO>>(listJson)
                                 : null;
+        }
+
+        private bool ValidateRoulette(string id)
+        {
+            bool validate = true;
+            DBRedisRoulette db = new DBRedisRoulette(connectionMultiplexer);
+            RouletteDTO roulette = db.ListRoulettes().Where(x => x.Id == id).First();
+            if (roulette == null)
+                validate = false;
+            else
+            {
+                validate = roulette.Condition == Models.Enum.ConditionEnum.Open;
+            }
+            return validate;
         }
     }
 }

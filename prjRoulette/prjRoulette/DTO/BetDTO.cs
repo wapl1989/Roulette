@@ -10,7 +10,6 @@ namespace prjRoulette.DTO
     public class BetDTO
     {
         [Key]
-        [Required]
         public string Id { get; set; }
         [Range(0,36)]
         public int NumberBet { get; set; }        
@@ -21,8 +20,7 @@ namespace prjRoulette.DTO
         public decimal ValueBet { get; set; }
         [Required]
         public string IdRoulette { get; set; }        
-        public decimal EarnedMoney { get; set; }
-        [Required]
+        public decimal EarnedMoney { get; set; }       
         public string User { get; set; }
     }
 }

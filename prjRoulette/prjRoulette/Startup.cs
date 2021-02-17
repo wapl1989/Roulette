@@ -29,6 +29,7 @@ namespace prjRoulette
             services.AddSingleton<IConnectionMultiplexer>(x =>
                         ConnectionMultiplexer.Connect(Configuration.GetSection("ConnectionRedis").Value));
             services.AddSingleton<IRoulette, RouletteRepository>();
+            services.AddSingleton<IBet, BetRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
