@@ -1,24 +1,24 @@
 WilliamPL
 
-configurar servidor Redis
-Cadena de conexion ConnectionRedis en el appsettings.json
+Install Redis-x64-3.0.504
 
-Para crear Ruleta POST http://localhost:58489/api/Roulette/CreateRoulette
-Para Abrir Ruleta PUT http://localhost:58489/api/Roulette/OpenRoulette/{id}
-Para Cerrar Ruleta PUT http://localhost:58489/api/Roulette/CloseRoulette/{id}
-Para Listar Ruleta GET http://localhost:58489/api/Roulette/AllRoulette/
+To configure the Redis server locate the connection string "ConnectionRedis"
+in the appsettings.json
 
-Para crear Apuesta POST http://localhost:58489/api/Bet/CreateBet/
-Header: Key = idUser
+To create a Roulette POST .../api/Roulette/CreateRoulette
+To Open a Roulette PUT ..../api/Roulette/OpenRoulette/{id}
+To Close a Roulette PUT .../api/Roulette/CloseRoulette/{id}
+To List a Roulette GET .../api/Roulette/AllRoulette/
+
+To create a Bet POST ../api/Bet/CreateBet/
+Header: Key => idUser
 Body:
 {
 	"Id":"0",
 	"NumberBet":30,
-	"ColorBet":0,
 	"TypeBet":1,
 	"ValueBet":5000,
-	"IdRoulette":"45e79e21-693e-4923-8609-d2bdbbfd61e5",
-	"EarnedMoney":0,
+	"IdRoulette":"{Id de la Ruleta}",
 	"User":"idUser"
 }
 

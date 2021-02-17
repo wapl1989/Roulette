@@ -12,11 +12,11 @@ namespace prjRoulette.Repositories
     public class RouletteRepository : IRoulette
     {
 
-        DBRedisRoulette dBRedis;
+        OperationsRedisRoulette dBRedis;
 
         public RouletteRepository(IConnectionMultiplexer _connectionMultiplexer)
         {
-            dBRedis = new DBRedisRoulette(_connectionMultiplexer);
+            dBRedis = new OperationsRedisRoulette(_connectionMultiplexer);
         }
 
         public async Task<RouletteDTO> CreateRoulette()

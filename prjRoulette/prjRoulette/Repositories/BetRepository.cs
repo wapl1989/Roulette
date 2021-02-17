@@ -11,10 +11,10 @@ namespace prjRoulette.Repositories
 {
     public class BetRepository : IBet
     {
-        DBRedisBet dBRedis;
+        OperationsRedisBet dBRedis;
         public BetRepository(IConnectionMultiplexer _connectionMultiplexer)
         {
-            dBRedis = new DBRedisBet(_connectionMultiplexer);
+            dBRedis = new OperationsRedisBet(_connectionMultiplexer);
         }
         public async Task<string> CreateBet(BetDTO betDTO)
         {
