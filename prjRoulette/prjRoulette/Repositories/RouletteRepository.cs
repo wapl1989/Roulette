@@ -12,11 +12,11 @@ namespace prjRoulette.Repositories
     public class RouletteRepository : IRoulette
     {
 
-        DBRedis dBRedis;
+        DBRedisRoulette dBRedis;
 
         public RouletteRepository(IConnectionMultiplexer _connectionMultiplexer)
         {
-            dBRedis = new DBRedis(_connectionMultiplexer);
+            dBRedis = new DBRedisRoulette(_connectionMultiplexer);
         }
 
         public async Task<RouletteDTO> CreateRoulette()
@@ -35,6 +35,14 @@ namespace prjRoulette.Repositories
                     Id = "NoVALIDO",
                     Condition = Models.Enum.ConditionEnum.Close
                 };
+        }
+
+        public async Task<string> OpenRoulette(string id)
+        {            
+            if (await dBRedis.OpenRoulette(id))
+                return "Exitosa";
+            else
+                return "Denegada";
         }
     }
 }

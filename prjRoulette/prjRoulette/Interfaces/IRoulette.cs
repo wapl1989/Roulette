@@ -9,5 +9,6 @@ namespace prjRoulette.Interfaces
     public interface IRoulette
     {
         public Task<RouletteDTO> CreateRoulette();
+        public Task<string> OpenRoulette(string id);
     }
 }

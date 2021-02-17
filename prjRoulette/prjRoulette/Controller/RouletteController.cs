@@ -24,5 +24,11 @@ namespace prjRoulette.Controller
             RouletteDTO newRoulette = await roulette.CreateRoulette();
             return Ok(newRoulette.Id);
         }
+
+        [HttpPut("OpenRoulette/{id}")]
+        public async Task<IActionResult> OpenRoulette(string id)
+        {            
+            return Ok(await roulette.OpenRoulette(id));
+        }
     }
 }

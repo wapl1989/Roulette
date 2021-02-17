@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace prjRoulette.Data
 {
-    public class DBRedis
+    public class DBRedisRoulette
     {
         private static IConnectionMultiplexer connectionMultiplexer;
         private static string nameRoulette = "TableRoulette";
-        public DBRedis(IConnectionMultiplexer _connectionMultiplexer)
+        public DBRedisRoulette(IConnectionMultiplexer _connectionMultiplexer)
         {
             connectionMultiplexer = _connectionMultiplexer;
         }
@@ -43,6 +43,25 @@ namespace prjRoulette.Data
             return listJson != null 
                                 ? JsonConvert.DeserializeObject<IList<RouletteDTO>>(listJson) 
                                 : null;
+        }
+
+        public async Task<bool> OpenRoulette(string id)
+        {
+            bool update = true;
+            try
+            {
+                IList<RouletteDTO> roulettes = ListRoulettes();
+                IDatabase db = connectionMultiplexer.GetDatabase();
+                RedisKey key = new RedisKey(nameRoulette);
+                RouletteDTO roulette = roulettes.FirstOrDefault(roulettes => roulettes.Id == id);
+                roulettes[roulettes.IndexOf(roulette)].Condition = Models.Enum.ConditionEnum.Open;
+                await db.StringSetAsync(key, JsonConvert.SerializeObject(roulettes));
+            }
+            catch (Exception)
+            {
+                update = false;
+            }
+            return update;
         }
     }
 }
