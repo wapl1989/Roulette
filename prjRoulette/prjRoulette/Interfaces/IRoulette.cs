@@ -8,6 +8,6 @@ namespace prjRoulette.Interfaces
 {
     public interface IRoulette
     {
-        public RouletteDTO CreateRoulette();
+        public Task<RouletteDTO> CreateRoulette();
     }
 }

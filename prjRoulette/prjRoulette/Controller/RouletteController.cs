@@ -18,10 +18,10 @@ namespace prjRoulette.Controller
         {
             this.roulette = _roulette;
         }
-        [HttpPost]
-        public IActionResult CreateRoulette()
+        [HttpPost("CreateRoulette")]
+        public async Task<IActionResult> CreateRoulette()
         {
-            RouletteDTO newRoulette = roulette.CreateRoulette();
+            RouletteDTO newRoulette = await roulette.CreateRoulette();
             return Ok(newRoulette.Id);
         }
     }
