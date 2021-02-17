@@ -1,6 +1,6 @@
 WilliamPL
 
-Install Redis-x64-3.0.504
+Install Redis-x64-3.0.504 (https://github.com/MicrosoftArchive/redis/releases/download/win-3.0.504/Redis-x64-3.0.504.msi)
 
 To configure the Redis server locate the connection string "ConnectionRedis"
 in the appsettings.json
