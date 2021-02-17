@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace prjRoulette.DTO
 {
+    
     public class RouletteDTO
     {
         [Key]
