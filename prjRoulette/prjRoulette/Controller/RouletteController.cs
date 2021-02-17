@@ -30,5 +30,10 @@ namespace prjRoulette.Controller
         {            
             return Ok(await roulette.OpenRoulette(id));
         }
+        [HttpPut("CloseRoulette/{id}")]
+        public async Task<IActionResult> CloseRoulette(string id)
+        {
+            return Ok(await roulette.CloseRoulette(id));
+        }
     }
 }

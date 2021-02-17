@@ -12,15 +12,13 @@ namespace prjRoulette.DTO
         [Key]
         public string Id { get; set; }
         [Range(0,36)]
-        public int NumberBet { get; set; }        
-        public BetColorEnum ColorBet { get; set; } 
+        public int NumberBet { get; set; }
         public BetTypes TypeBet { get; set; }
         [Range(1,10000)]
         [Required]
         public decimal ValueBet { get; set; }
         [Required]
-        public string IdRoulette { get; set; }        
-        public decimal EarnedMoney { get; set; }       
+        public string IdRoulette { get; set; }     
         public string User { get; set; }
     }
 }

@@ -44,5 +44,10 @@ namespace prjRoulette.Repositories
             else
                 return "Denegada";
         }
+
+        public async Task<List<ResultsRouletteDTO>> CloseRoulette(string id)
+        {
+            return (await dBRedis.CloseRoulette(id));
+        }
     }
 }
