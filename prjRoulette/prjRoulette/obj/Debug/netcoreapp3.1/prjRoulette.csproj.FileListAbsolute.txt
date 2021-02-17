@@ -1,0 +1,12 @@
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\prjRoulette.exe
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.csprojAssemblyReference.cache
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.AssemblyInfoInputs.cache
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.AssemblyInfo.cs
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.RazorTargetAssemblyInfo.cache
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\staticwebassets\prjRoulette.StaticWebAssets.Manifest.cache
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\staticwebassets\prjRoulette.StaticWebAssets.xml
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.csproj.CopyComplete
