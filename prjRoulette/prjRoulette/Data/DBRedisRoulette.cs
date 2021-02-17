@@ -11,7 +11,7 @@ namespace prjRoulette.Data
     public class DBRedisRoulette
     {
         private static IConnectionMultiplexer connectionMultiplexer;
-        private static string nameRoulette = "TableRoulette";
+        private static string nameTable = "TableRoulette";
         public DBRedisRoulette(IConnectionMultiplexer _connectionMultiplexer)
         {
             connectionMultiplexer = _connectionMultiplexer;
@@ -23,7 +23,7 @@ namespace prjRoulette.Data
             try
             {
                 IDatabase db = connectionMultiplexer.GetDatabase();
-                RedisKey key = new RedisKey(nameRoulette);
+                RedisKey key = new RedisKey(nameTable);
                 IList<RouletteDTO> roulettes = ListRoulettes() ?? new List<RouletteDTO>();
                 roulettes.Add(_roulette);
                 await db.StringSetAsync(key, JsonConvert.SerializeObject(roulettes));
@@ -38,7 +38,7 @@ namespace prjRoulette.Data
         public IList<RouletteDTO> ListRoulettes()
         {
             IDatabase db = connectionMultiplexer.GetDatabase();
-            RedisKey key = new RedisKey(nameRoulette);
+            RedisKey key = new RedisKey(nameTable);
             string listJson = db.StringGet(key);
             return listJson != null 
                                 ? JsonConvert.DeserializeObject<IList<RouletteDTO>>(listJson) 
@@ -52,7 +52,7 @@ namespace prjRoulette.Data
             {
                 IList<RouletteDTO> roulettes = ListRoulettes();
                 IDatabase db = connectionMultiplexer.GetDatabase();
-                RedisKey key = new RedisKey(nameRoulette);
+                RedisKey key = new RedisKey(nameTable);
                 RouletteDTO roulette = roulettes.FirstOrDefault(roulettes => roulettes.Id == id);
                 roulettes[roulettes.IndexOf(roulette)].Condition = Models.Enum.ConditionEnum.Open;
                 await db.StringSetAsync(key, JsonConvert.SerializeObject(roulettes));

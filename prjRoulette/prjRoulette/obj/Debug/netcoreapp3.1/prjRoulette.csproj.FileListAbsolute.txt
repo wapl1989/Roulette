@@ -2,7 +2,6 @@ D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcor
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\bin\Debug\netcoreapp3.1\prjRoulette.exe
-D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.csprojAssemblyReference.cache
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.AssemblyInfoInputs.cache
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.AssemblyInfo.cs
 D:\Proyectos\Masivian\Roulette\Roulette\prjRoulette\prjRoulette\obj\Debug\netcoreapp3.1\prjRoulette.RazorTargetAssemblyInfo.cache
