@@ -35,5 +35,10 @@ namespace prjRoulette.Controller
         {
             return Ok(await roulette.CloseRoulette(id));
         }
+        [HttpGet("AllRoulette")]
+        public IActionResult AllRoulette()
+        {            
+            return Ok(roulette.AllRoulette());
+        }
     }
 }

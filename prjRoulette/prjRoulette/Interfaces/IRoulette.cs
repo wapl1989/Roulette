@@ -11,5 +11,6 @@ namespace prjRoulette.Interfaces
         public Task<RouletteDTO> CreateRoulette();
         public Task<string> OpenRoulette(string id);
         public Task<List<ResultsRouletteDTO>> CloseRoulette(string id);
+        public List<RouletteDTO> AllRoulette();
     }
 }

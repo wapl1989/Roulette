@@ -5,7 +5,8 @@ Cadena de conexion ConnectionRedis en el appsettings.json
 
 Para crear Ruleta POST http://localhost:58489/api/Roulette/CreateRoulette
 Para Abrir Ruleta PUT http://localhost:58489/api/Roulette/OpenRoulette/{id}
-Para Cerrar Ruleta PUT 
+Para Cerrar Ruleta PUT http://localhost:58489/api/Roulette/CloseRoulette/{id}
+Para Listar Ruleta GET http://localhost:58489/api/Roulette/AllRoulette/
 
 Para crear Apuesta POST http://localhost:58489/api/Bet/CreateBet/
 Header: Key = idUser

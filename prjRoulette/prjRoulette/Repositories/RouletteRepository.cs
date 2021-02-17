@@ -49,5 +49,10 @@ namespace prjRoulette.Repositories
         {
             return (await dBRedis.CloseRoulette(id));
         }
+
+        public List<RouletteDTO> AllRoulette()
+        {
+            return ((List<RouletteDTO>)dBRedis.ListRoulettes());
+        }
     }
 }
