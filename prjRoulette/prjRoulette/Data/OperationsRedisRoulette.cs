@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using prjRoulette.DTO;
+using prjRoulette.Interfaces;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace prjRoulette.Data
 {
-    public class OperationsRedisRoulette
+    public class OperationsRedisRoulette : IOperationsRoulette
     {
         
         private static IConnectionMultiplexer connectionMultiplexer;
@@ -75,10 +76,10 @@ namespace prjRoulette.Data
             roulettes[roulettes.IndexOf(roulette)].Condition = Models.Enum.ConditionEnum.Close;
             await db.StringSetAsync(key, JsonConvert.SerializeObject(roulettes));
 
-            return CalculateResults(idRoulette);
+            return (List<ResultsRouletteDTO>)CalculateResults(idRoulette);
         }
 
-        private List<ResultsRouletteDTO> CalculateResults(string idRoulette)
+        private IList<ResultsRouletteDTO> CalculateResults(string idRoulette)
         {
             List<ResultsRouletteDTO> resultList = new List<ResultsRouletteDTO>();
             OperationsRedisBet redisBet = new OperationsRedisBet(connectionMultiplexer);
@@ -116,5 +117,6 @@ namespace prjRoulette.Data
             Random random = new Random();
             return random.Next(0, 36);
         }
+
     }
 }

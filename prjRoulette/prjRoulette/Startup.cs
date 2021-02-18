@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using prjRoulette.Data;
 using prjRoulette.Interfaces;
 using prjRoulette.Repositories;
 using StackExchange.Redis;
@@ -29,6 +30,7 @@ namespace prjRoulette
                         ConnectionMultiplexer.Connect(Configuration.GetSection("ConnectionRedis").Value));
             services.AddSingleton<IRoulette, RouletteRepository>();
             services.AddSingleton<IBet, BetRepository>();
+            services.AddSingleton<IOperationsRoulette, OperationsRedisRoulette>();
         }
 
         

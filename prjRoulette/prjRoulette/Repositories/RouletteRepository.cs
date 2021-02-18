@@ -12,11 +12,11 @@ namespace prjRoulette.Repositories
     public class RouletteRepository : IRoulette
     {
 
-        OperationsRedisRoulette dBRedis;
-
-        public RouletteRepository(IConnectionMultiplexer _connectionMultiplexer)
-        {
-            dBRedis = new OperationsRedisRoulette(_connectionMultiplexer);
+        private IOperationsRoulette operations;
+        
+        public RouletteRepository(IOperationsRoulette _operations)
+        {            
+            operations = _operations;
         }
 
         public async Task<RouletteDTO> CreateRoulette()
@@ -27,7 +27,7 @@ namespace prjRoulette.Repositories
                 Condition = Models.Enum.ConditionEnum.Close
             };
 
-            if (await dBRedis.CreateRoulette(roulette))
+            if (await operations.CreateRoulette(roulette))
                 return roulette;
             else
                 return new RouletteDTO
@@ -38,21 +38,21 @@ namespace prjRoulette.Repositories
         }
 
         public async Task<string> OpenRoulette(string id)
-        {            
-            if (await dBRedis.OpenRoulette(id))
+        {           
+            if (await operations.OpenRoulette(id))
                 return "Exitosa";
             else
                 return "Denegada";
         }
 
         public async Task<List<ResultsRouletteDTO>> CloseRoulette(string id)
-        {
-            return (await dBRedis.CloseRoulette(id));
+        {           
+            return (await operations.CloseRoulette(id));
         }
 
         public List<RouletteDTO> AllRoulette()
-        {
-            return ((List<RouletteDTO>)dBRedis.ListRoulettes());
+        {            
+            return ((List<RouletteDTO>)operations.ListRoulettes());
         }
     }
 }
